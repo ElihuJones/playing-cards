@@ -15,11 +15,11 @@ public class Card implements Comparable<Card> {
   }
 
   //Methods
-  public Rank Rank() {
+  public Rank rank() {
     return rank;
   }
 
-  public Suit Suit() {
+  public Suit suit() {
     return suit;
   }
 
@@ -50,7 +50,11 @@ public class Card implements Comparable<Card> {
 
   @Override
   public int compareTo(Card other) {
-    return 0; //Todo Replace with comparison based on suit and rank.
+    int comparision = this.suit.compareTo(other.suit);
+    if (comparision == 0) {
+      comparision = rank.compareTo(other.rank);
+    }
+    return comparision;
   }
 
 }
