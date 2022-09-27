@@ -19,7 +19,8 @@ public class Main {
     deck.sort(new ColorFirst());      //
     System.out.println(deck);         // This is shrink wrap order but in descending order.
   }
-  private class ColorFirst implements Comparator<Card> {
+  //Now this is a static nested inner class within Main.java
+  private static class ColorFirst implements Comparator<Card> {
 
     //This method was Overridden because the class inherits an abstract class, thus won't compile if not overridden.
     @Override
