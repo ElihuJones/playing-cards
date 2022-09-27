@@ -9,7 +9,6 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
-    Comparator<Card> comparator = ;
 
     Deck deck = new Deck();           //An instance of Deck.
     System.out.println(deck);         //String representation of the deck. Shrink wrap order
