@@ -9,7 +9,18 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
-    Comparator<Card> comparator = new Comparator<>() {              //Read as: Comparator of Card named comparator is assigned an instance of a class Comparator within
+    Comparator<Card> comparator = ;
+
+    Deck deck = new Deck();           //An instance of Deck.
+    System.out.println(deck);         //String representation of the deck. Shrink wrap order
+    Random rng = new SecureRandom();  //Creates an acceptable source of randomness.
+    deck.shuffle(rng);                //Randomly shuffles the deck.
+    System.out.println(deck);         //Prints out the particular instance.
+    deck.sort();                      //Sorts the deck in the normal order
+    System.out.println(deck);         //Shrink wrap order again
+
+    //This is often how anonymous classes are often see. They are passed inside the parenthesis of sort
+    deck.sort(new Comparator<>() {              //Read as: Comparator of Card named comparator is assigned an instance of a class Comparator within
 
       //This method was Overridden because the class inherits an abstract class, thus won't compile if not overridden.
       @Override
@@ -23,16 +34,7 @@ public class Main {
         }
         return comparison;
       }
-    };
-
-    Deck deck = new Deck();           //An instance of Deck.
-    System.out.println(deck);         //String representation of the deck. Shrink wrap order
-    Random rng = new SecureRandom();  //Creates an acceptable source of randomness.
-    deck.shuffle(rng);                //Randomly shuffles the deck.
-    System.out.println(deck);         //Prints out the particular instance.
-    deck.sort();                      //Sorts the deck in the normal order
-    System.out.println(deck);         //Shrink wrap order again
-    deck.sort(comparator);      //
+    });      //Semicolon is required here because a statement was made. Odd look but required in order to compile.
     System.out.println(deck);         // This is shrink wrap order but in descending order.
   }
 }
