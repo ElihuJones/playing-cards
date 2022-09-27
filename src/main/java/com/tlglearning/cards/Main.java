@@ -9,7 +9,7 @@ import java.util.Random;
 public class Main {
 
   public static void main(String[] args) {
-    class ColorFirst implements Comparator<Card> {
+    Comparator<Card> comparator = new Comparator<>() {              //Read as: Comparator of Card named comparator is assigned an instance of a class Comparator within
 
       //This method was Overridden because the class inherits an abstract class, thus won't compile if not overridden.
       @Override
@@ -23,7 +23,7 @@ public class Main {
         }
         return comparison;
       }
-    }
+    };
 
     Deck deck = new Deck();           //An instance of Deck.
     System.out.println(deck);         //String representation of the deck. Shrink wrap order
@@ -32,9 +32,8 @@ public class Main {
     System.out.println(deck);         //Prints out the particular instance.
     deck.sort();                      //Sorts the deck in the normal order
     System.out.println(deck);         //Shrink wrap order again
-    deck.sort(new ColorFirst());      //
+    deck.sort(comparator);      //
     System.out.println(deck);         // This is shrink wrap order but in descending order.
   }
-  //Now this is a static nested inner class within Main.java
 }
 
